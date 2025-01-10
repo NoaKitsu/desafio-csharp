@@ -8,7 +8,7 @@ using System.Threading;
 namespace Desafio{
     public class Program{
         static void Main(string[] args){
-            if (args == null || args.Length < 3){
+            if(args == null || args.Length < 3){
                 Console.WriteLine("Entrada Inválida");
             }
             else{
@@ -52,7 +52,7 @@ namespace Desafio{
                 if(group.Key == "Meta Data"){//analisa o primeiro dado do dicionario que indica o ultimo update
                     //Console.WriteLine("Value = {0}", group.Value);
                     dynamic dataFromMetaData = DeserializerDynamicFunction(group.Value);
-                    Console.WriteLine("Last Refreshed = {0}", dataFromMetaData["3. Last Refreshed"]);
+                    Console.WriteLine("Último Update/Last Refreshed = {0}", dataFromMetaData["3. Last Refreshed"]);
                     lastDataUpdate = Convert.ToString(dataFromMetaData["3. Last Refreshed"]);
                 } else if(group.Key == "Time Series (1min)"){//verifica o ultimo update e dispara o alerta de email caso satisfaça a condicao
                     //Console.WriteLine("Value = {0}", group.Value);
@@ -61,7 +61,7 @@ namespace Desafio{
                         if(datagroup.Key == lastDataUpdate){
                             dynamic dataFromTime = DeserializerDynamicFunction(datagroup.Value);
                             string valueClose = Convert.ToString(dataFromTime["4. close"]);
-                            Console.WriteLine("Close = {0}", valueClose);
+                            Console.WriteLine("Valor de fechamento/Close = {0}", valueClose);
                             return valueClose;
                         }
                     }

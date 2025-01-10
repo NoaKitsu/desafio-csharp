@@ -15,9 +15,9 @@ namespace SendEmail{
         }
 
         public void SendEmail(string emailTo, string emailSubject, string emailMessage){//dispara o smtp
-
             var message = PreparateMessage(emailTo, emailSubject, emailMessage);
             SendEmailSMTP(message);
+            Console.WriteLine("Email enviado");
         }
 
         private MailMessage PreparateMessage(string emailTo, string emailSubject, string emailMessage){//prepara os dados que serao enviados
