@@ -1,0 +1,4 @@
+email destino
+provedor(Ex:smtp.gmail.com)
+email mandante
+senha do email mandante
